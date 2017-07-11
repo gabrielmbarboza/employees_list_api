@@ -18,16 +18,6 @@ class EmployeesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -35,7 +25,11 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = new \App\Employee;
+        $employee->first_name = $request->first_name;
+        $employee->first_name = $request->last_name;
+        $employee->first_name = $request->nickname;
+        $employee->first_name = $request->phone; 
     }
 
     /**
@@ -46,18 +40,8 @@ class EmployeesController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $employee = \App\Employee::find($id);
+        return response()->json($employee);
     }
 
     /**
@@ -80,6 +64,6 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Employee::delete($id);
     }
 }
