@@ -17,5 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('/v1/position_types', 'PositionTypesController');
+Route::resource('/v1/position-types', 'PositionTypesController');
 Route::resource('/v1/employees', 'EmployeesController');
