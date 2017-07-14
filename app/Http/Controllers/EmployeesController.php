@@ -27,9 +27,10 @@ class EmployeesController extends Controller
     {
         $employee = new \App\Employee;
         $employee->first_name = $request->first_name;
-        $employee->first_name = $request->last_name;
-        $employee->first_name = $request->nickname;
-        $employee->first_name = $request->phone; 
+        $employee->last_name = $request->last_name;
+        $employee->nickname = $request->nickname;
+        $employee->phone = $request->phone;
+        $employee->saveOrFail(); 
     }
 
     /**
@@ -53,7 +54,12 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = \App\Employee::find($id);
+        $employee->first_name = $request->first_name;
+        $employee->last_name = $request->last_name;
+        $employee->nickname = $request->nickname;
+        $employee->phone = $request->phone;
+        $employee->update();
     }
 
     /**
