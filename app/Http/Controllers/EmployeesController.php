@@ -26,11 +26,12 @@ class EmployeesController extends Controller
     public function store(Request $request)
     {
         $employee = new \App\Employee;
+        $employee->position_type_id = $request->position_type_id; 
         $employee->first_name = $request->first_name;
         $employee->last_name = $request->last_name;
         $employee->nickname = $request->nickname;
         $employee->phone = $request->phone;
-        $employee->saveOrFail(); 
+        $employee->save(); 
     }
 
     /**
